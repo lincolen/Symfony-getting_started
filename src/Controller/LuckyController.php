@@ -13,12 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LuckyController extends AbstractController{
     /**
-     * @Route("/lucky/number")
+     * @Route("/lucky/number/{max}", name="app_lucky_number",
+     *      requirements={"max": "\d+"}
+     * )
      */
-
-    public function number(){
-        $number = random_int(0,100);
-
+     public function number($max = 100){
+        $number = random_int(0,$max);
+        $url = $this->generateUrl("app_lucky_number", ["max" => 10]);
         return $this->render('lucky/number.html.twig', [
             'number' => $number,
             ]);
