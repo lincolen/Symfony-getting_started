@@ -1,0 +1,25 @@
+#incluse annotations routing 
+ composer require annotations
+#on controller:
+use Symfony\Component\Routing\Annotation\Route;
+#in class:
++     /**
++      * @Route("/lucky/number")
++      */
+
+#cmd list 
+$php bin/console
+
+#route list
+$php bin/console debug:router
+
+#reguler expression of digit set of any length
+\d+
+
+#service list
+php bin/console debug:autowiring
+
+#page not found exception
+throw $this->createNotFoundException('The product does not exist');
+
+

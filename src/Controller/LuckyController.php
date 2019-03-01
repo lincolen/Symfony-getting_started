@@ -8,6 +8,7 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -29,5 +30,14 @@ class LuckyController extends AbstractController{
             '<html><body>Lucky number: ' . $number . '</body></html>'
         );
         */
+    }
+
+    /**
+     * taking a request as a controller argument
+     *
+     * @Route("lucky/request", name="app_lucky_request")
+     */
+    public function luckyRequest(Request $request){
+        $page = $request->get('page', 1);
     }
 }

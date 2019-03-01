@@ -9,8 +9,9 @@
 namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse; #rsponse object
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController; #render() and redirect()
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class RedirectController extends AbstractController{
 
@@ -30,6 +31,17 @@ class RedirectController extends AbstractController{
      */
     public function redirectHome(){
         return $this->redirect("http://localhost:8000/",  301);
+    }
+
+    /**
+     * redirect to page not found
+     *
+     * @Route("redirect/404", name="app_redirect_404")
+     */
+    public function redirect404(){
+
+            throw $this->createNotFoundException('page does not exists mehomie');
+
     }
 
     /**
